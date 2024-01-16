@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // la tagline
     tagline.innerHTML = slides[index].tagLine;
-    document.querySelector('.banner-img').src = slides[index].image;
+    bannerImage.src = slides[index].image;
   }
 
   //événement pour la flèche gauche
