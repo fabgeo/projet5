@@ -12,14 +12,13 @@ const slides = [
 		tagLine: "Grand choix de couleurs <span>de CMJN aux pantones</span>",
 	},
 	{
-		image: "./assets/images/slideshow/slide4.jpg",
-	    tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
+		image: "./assets/images/slideshow/slide4.png",
+	  tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
 	},
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-	const banner = document.getElementById("banner");
-	const bannerImages = document.querySelectorAll(".banner-img");
+	const bannerImage = document.querySelector(".banner-img");
 	const arrowLeft = document.getElementById("arrowLeft");
 	const arrowRight = document.getElementById("arrowRight");
 	const dots = document.querySelectorAll(".dot");
@@ -28,14 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Fonction pour afficher l'image correspondant à l'index donné
   function showImage(index) {
-    // Masquer toutes les images
-    bannerImages.forEach(function(image) {
-      image.style.display = "none";
-    });
-
-    //image correspondant à l'index
-    bannerImages[index].style.display = "block";
-
     // classe des points
     dots.forEach(function(dot, dotIndex) {
       dot.classList.remove("dot_selected");
@@ -46,17 +37,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // la tagline
     tagline.innerHTML = slides[index].tagLine;
+    document.querySelector('.banner-img').src = slides[index].image;
   }
 
   //événement pour la flèche gauche
   arrowLeft.addEventListener("click", function() {
-    currentIndex = (currentIndex - 1 + bannerImages.length) % bannerImages.length;
+    if (currentIndex == 0) {
+       currentIndex = 3
+    } else {
+      currentIndex = currentIndex - 1;
+    }
+    console.log(currentIndex)
     showImage(currentIndex);
   });
 
   //événement pour la flèche droite
   arrowRight.addEventListener("click", function() {
-    currentIndex = (currentIndex + 1) % bannerImages.length;
+    currentIndex = currentIndex + 1 ;
+    if (currentIndex == 4) {
+      currentIndex = 0
+   } 
     showImage(currentIndex);
   });
 
