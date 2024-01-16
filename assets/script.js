@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
       image.style.display = "none";
     });
 
-    // Afficher l'image correspondant à l'index
+    //image correspondant à l'index
     bannerImages[index].style.display = "block";
 
-    // Mettre à jour la classe des points
+    // classe des points
     dots.forEach(function(dot, dotIndex) {
       dot.classList.remove("dot_selected");
       if (dotIndex === index) {
@@ -44,23 +44,23 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    // Mettre à jour la tagline
+    // la tagline
     tagline.innerHTML = slides[index].tagLine;
   }
 
-  // Gestionnaire d'événement pour la flèche gauche
+  //événement pour la flèche gauche
   arrowLeft.addEventListener("click", function() {
     currentIndex = (currentIndex - 1 + bannerImages.length) % bannerImages.length;
     showImage(currentIndex);
   });
 
-  // Gestionnaire d'événement pour la flèche droite
+  //événement pour la flèche droite
   arrowRight.addEventListener("click", function() {
     currentIndex = (currentIndex + 1) % bannerImages.length;
     showImage(currentIndex);
   });
 
-  // Gestionnaire d'événement pour les points
+  //événement pour les points
   dots.forEach(function(dot, dotIndex) {
     dot.addEventListener("click", function() {
       currentIndex = dotIndex;
