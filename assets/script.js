@@ -67,8 +67,5 @@ document.addEventListener("DOMContentLoaded", function() {
       showImage(currentIndex);
     });
   });
-
-  // Afficher la première image au chargement de la page
-  showImage(currentIndex);
 });
 
